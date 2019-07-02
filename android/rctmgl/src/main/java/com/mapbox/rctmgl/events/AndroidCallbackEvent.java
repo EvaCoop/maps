@@ -11,28 +11,25 @@ import com.mapbox.rctmgl.events.constants.EventKeys;
  */
 
 public class AndroidCallbackEvent extends AbstractEvent {
-    private final WritableMap mPayload;
+    private String mKey;
+    private WritableMap mPayload;
 
-    public AndroidCallbackEvent(View view, String callbackID, WritableMap payload) {
+    public AndroidCallbackEvent(View view, String callbackID, String key) {
         super(view, callbackID);
+        mKey = key;
+    }
+
+    public void setPayload(WritableMap payload) {
         mPayload = payload;
     }
 
     @Override
     public String getKey() {
-        return EventKeys.MAP_ANDROID_CALLBACK;
+        return mKey;
     }
 
     @Override
     public WritableMap getPayload() {
         return mPayload;
-    }
-
-    @Override
-    public boolean canCoalesce() {
-        // Make sure EventDispatcher never merges EventKeys.MAP_ANDROID_CALLBACK events.
-        // These events are couples to unique callbacks references (promises) on the JS side which
-        // each expect response with their corresponding callbackID
-        return false;
     }
 }

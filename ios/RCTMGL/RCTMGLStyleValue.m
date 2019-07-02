@@ -98,8 +98,6 @@
 {
     if ([expressionJSON isKindOfClass:[NSDictionary class]]) {
         return [expressionJSON valueForKey:@"uri"];
-    } else if ([expressionJSON isKindOfClass:[NSArray class]]) {
-        return nil;
     } else {
         return (NSString *)expressionJSON;
     }

@@ -75,8 +75,13 @@ public class CameraStop {
     }
 
     public CameraUpdateItem toCameraUpdate(MapboxMap map) {
-        CameraPosition currentCamera = map.getCameraPosition();
-        CameraPosition.Builder builder = new CameraPosition.Builder(currentCamera);
+        if (mBounds != null) {
+            CameraUpdate update = CameraUpdateFactory.newLatLngBounds(mBounds, mBoundsPaddingLeft,
+                    mBooundsPaddingTop, mBoundsPaddingRight, mBoundsPaddingBottom);
+            return new CameraUpdateItem(map, update, mDuration, mCallback, CameraMode.FLIGHT);
+        }
+
+        CameraPosition.Builder builder = new CameraPosition.Builder();
 
         if (mBearing != null) {
             builder.bearing(mBearing);
@@ -86,25 +91,12 @@ public class CameraStop {
             builder.tilt(mTilt);
         }
 
-        if (mLatLng != null) {
-            builder.target(mLatLng);
-        } else if (mBounds != null) {
-            double tilt = mTilt != null ? mTilt : currentCamera.tilt;
-            double bearing = mBearing != null ? mBearing : currentCamera.bearing;
-            int[] cameraPadding = {mBoundsPaddingLeft, mBooundsPaddingTop, mBoundsPaddingRight, mBoundsPaddingBottom};
-            CameraPosition boundsCamera = map.getCameraForLatLngBounds(mBounds, cameraPadding, bearing, tilt);
-            if (boundsCamera != null) {
-                builder.target(boundsCamera.target);
-                builder.zoom(boundsCamera.zoom);
-            } else {
-                CameraUpdate update = CameraUpdateFactory.newLatLngBounds(mBounds, mBoundsPaddingLeft,
-                        mBooundsPaddingTop, mBoundsPaddingRight, mBoundsPaddingBottom);
-                return new CameraUpdateItem(map, update, mDuration, mCallback, mMode);
-            }
-        }
-
         if (mZoom != null) {
             builder.zoom(mZoom);
+        }
+
+        if (mLatLng != null) {
+            builder.target(mLatLng);
         }
 
         return new CameraUpdateItem(map, CameraUpdateFactory.newCameraPosition(builder.build()), mDuration, mCallback, mMode);

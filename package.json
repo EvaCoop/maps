@@ -1,26 +1,28 @@
 {
-  "_from": "git+https://github.com/EvaCoop/maps.git",
+  "_from": "@react-native-mapbox-gl/maps",
   "_id": "@react-native-mapbox-gl/maps@7.0.0-rc3",
   "_inBundle": false,
-  "_integrity": "",
+  "_integrity": "sha512-X0APIb2lQYCMgOZU0d6la/0n6jG7dJSEgfZM83ag2g9yOfpAOau/kOR7Qzt7gm+1KPwa12S42UgeRANUfjPaOw==",
   "_location": "/@react-native-mapbox-gl/maps",
   "_phantomChildren": {},
   "_requested": {
-    "type": "git",
-    "raw": "@react-native-mapbox-gl/maps@git+https://github.com/EvaCoop/maps.git",
+    "type": "tag",
+    "registry": true,
+    "raw": "@react-native-mapbox-gl/maps",
     "name": "@react-native-mapbox-gl/maps",
     "escapedName": "@react-native-mapbox-gl%2fmaps",
     "scope": "@react-native-mapbox-gl",
-    "rawSpec": "git+https://github.com/EvaCoop/maps.git",
-    "saveSpec": "git+https://github.com/EvaCoop/maps.git",
-    "fetchSpec": "https://github.com/EvaCoop/maps.git",
-    "gitCommittish": null
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
   },
   "_requiredBy": [
+    "#USER",
     "/"
   ],
-  "_resolved": "git+https://github.com/EvaCoop/maps.git#a1e6925f73fc2d8f5b489d8149be6ac6616c54d1",
-  "_spec": "@react-native-mapbox-gl/maps@git+https://github.com/EvaCoop/maps.git",
+  "_resolved": "https://registry.npmjs.org/@react-native-mapbox-gl/maps/-/maps-7.0.0-rc3.tgz",
+  "_shasum": "04d13404cf97582660fa17f63b6a9e5cdddf9a99",
+  "_spec": "@react-native-mapbox-gl/maps",
   "_where": "/home/zhijiec99/Desktop/eva/eva-react-native-client",
   "author": {
     "name": "React Native Mapbox Team"
@@ -31,9 +33,9 @@
   "bundleDependencies": false,
   "dependencies": {
     "@mapbox/geo-viewport": ">= 0.4.0",
-    "@turf/along": ">= 4.0.0 <7.0.0",
-    "@turf/distance": ">= 4.0.0 <7.0.0",
-    "@turf/helpers": ">= 4.6.0 <7.0.0",
+    "@turf/along": ">= 4.0.0",
+    "@turf/distance": ">= 4.0.0",
+    "@turf/helpers": "4.6.0",
     "underscore": "^1.8.3"
   },
   "deprecated": false,
@@ -52,7 +54,7 @@
     "ejs-lint": "^0.3.0",
     "eslint": "^6.0.0",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-config-prettier": "^6.0.0",
+    "eslint-config-prettier": "^4.1.0",
     "eslint-config-strict-react": "9.0.2",
     "eslint-plugin-flowtype": "^3.4.2",
     "eslint-plugin-fp": "^2.3.0",

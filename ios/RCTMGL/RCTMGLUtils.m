@@ -121,10 +121,7 @@ static double const MS_TO_S = 0.001;
         UIImage *foundImage = forceUpdate ? nil : [style imageForName:imageName];
         
         if (forceUpdate || foundImage == nil) {
-            NSDictionary* image = objects[imageName];
-            BOOL hasScale = [image isKindOfClass:[NSDictionary class]] && ([image objectForKey:@"scale"] != nil);
-            double scale = hasScale ? [[image objectForKey:@"scale"] doubleValue] : 1.0;
-            [RCTMGLImageQueue.sharedInstance addImage:objects[imageName] scale:scale bridge:bridge completionHandler:^(NSError *error, UIImage *image) {
+            [RCTMGLImageQueue.sharedInstance addImage:objects[imageName] scale:1.0 bridge:bridge completionHandler:^(NSError *error, UIImage *image) {
               if (!image) {
                 RCTLogWarn(@"Failed to fetch image: %@ error:%@", imageName, error);
               }

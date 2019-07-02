@@ -12,7 +12,6 @@ public interface IEvent {
     String getType();
     long getTimestamp();
     boolean equals(IEvent event);
-    boolean canCoalesce();
     WritableMap getPayload();
     WritableMap toJSON();
 }
